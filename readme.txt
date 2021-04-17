@@ -1,0 +1,1 @@
+Criando Dockerfile para poder criar o container da api rest json usando springboot no docker. Para acessar a api e listar os desenvolvedores: curl http://localhost:8080/desenvolvedores
