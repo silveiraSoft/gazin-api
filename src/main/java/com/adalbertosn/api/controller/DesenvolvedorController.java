@@ -48,7 +48,6 @@ public class DesenvolvedorController {
 	public List<Desenvolvedor> listar() {
 		return desenvolvedorRepository.listar();
 	}
-	
 	/**
 	 * Endpoint para listar dados do desenvolvedor enviado no parâmetro
 	 * Método GET /developers/{id}
