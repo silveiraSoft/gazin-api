@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,16 +45,18 @@ public class DesenvolvedorController {
 	private DesenvolvedorRepository desenvolvedorRepository;
 	@Autowired
 	private CadastroDesenvolvedorService cadastroDesenvolvedor;
+	@CrossOrigin(origins = "http://localhost")
 	@GetMapping
 	public List<Desenvolvedor> listar() {
 		return desenvolvedorRepository.listar();
 	}
 	/**
-	 * Endpoint para listar dados do desenvolvedor enviado no parâmetro
+	 * Endpoint para obter dados do desenvolvedor inserido no parâmetro
 	 * Método GET /developers/{id}
 	 * @param desenvolvedorId id do desenvolvedor
-	 * @return JSON com os dados do desenvolvedor
+	 * @return 404 se não encontrou o desenvolvedor, ou 200 e o dado do desenvolvedores em formato json
 	 */
+	@CrossOrigin(origins = "http://localhost")
 	@GetMapping("/{desenvolvedorId}")
 	public ResponseEntity<Desenvolvedor> buscar(@PathVariable("desenvolvedorId") Long desenvolvedorId) {
         Desenvolvedor desenvolvedor = desenvolvedorRepository.buscar(desenvolvedorId);
@@ -65,13 +68,15 @@ public class DesenvolvedorController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	@CrossOrigin(origins = "http://localhost")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	@Transactional
 	public Desenvolvedor adicionar(@RequestBody Desenvolvedor desenvolvedor) {
 		return desenvolvedorRepository.salvar(desenvolvedor);
 	}
-	
+	//@CrossOrigin(originPatterns = "http://localhost/1")
+	@CrossOrigin(origins = "http://localhost")
 	@PutMapping("/{desenvolvedorId}")
 	public ResponseEntity<Desenvolvedor> atualizar(@PathVariable("desenvolvedorId") Long desenvolvedorId,
 			@RequestBody Desenvolvedor desenvolvedor) {
@@ -87,6 +92,7 @@ public class DesenvolvedorController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	@CrossOrigin(origins = "http://localhost")
 	@DeleteMapping("/{desenvolvedorId}")
 	public ResponseEntity<Desenvolvedor> remover(@PathVariable("desenvolvedorId") Long desenvolvedorId) {
 		try {

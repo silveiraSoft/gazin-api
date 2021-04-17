@@ -20,7 +20,7 @@ public class Desenvolvedor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable=false,length = 200)
+	@Column(nullable=false,length = 255)
 	private String nome;
 	
 	@Column(nullable=false,length = 1)
@@ -29,11 +29,11 @@ public class Desenvolvedor {
 	@Column(nullable=false)
 	private Integer idade;
 	
-	@Column(nullable=false,length = 500)
+	@Column(nullable=false,length = 255)
 	private String hobby;
 	
-	@Column(nullable=false,length = 500)
-	private Date dataNacimento;
+	@Column(nullable=false)
+	private Date dataNascimento;
 	
 	
 	
