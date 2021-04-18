@@ -1,15 +1,8 @@
 package com.adalbertosn.api.controller;
 
-//import java.util.ArrayList;
-//import java.util.ArrayList;
 import java.util.List;
-//import java.util.Optional;
-
+import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
-
-//import javax.persistence.EntityManager;
-//import javax.persistence.PersistenceContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,6 +42,16 @@ public class DesenvolvedorController {
 	@GetMapping
 	public List<Desenvolvedor> listar() {
 		return desenvolvedorRepository.listar();
+		/*
+		List<Desenvolvedor> desenvolvedores = desenvolvedorRepository.listar();
+		List<Desenvolvedor> desenvolvedores2 = new ArrayList<Desenvolvedor>();
+		for(Desenvolvedor d : desenvolvedores) {
+		    //d.setDataNascimento(LocalDate.parse(d.getDataNascimento().format(formatter),DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+			d.setDataNascimento(LocalDate.parse(d.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),DateTimeFormatter.ofPattern("dd/MM/yyyy")));	
+		   desenvolvedores2.add(d);
+		}
+		return desenvolvedores2;
+		*/
 	}
 	/**
 	 * Endpoint para obter dados do desenvolvedor inserido no parâmetro
@@ -72,10 +75,10 @@ public class DesenvolvedorController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	@Transactional
-	public Desenvolvedor adicionar(@RequestBody Desenvolvedor desenvolvedor) {
+	public Desenvolvedor adicionar(@RequestBody @Valid Desenvolvedor desenvolvedor) {
 		return desenvolvedorRepository.salvar(desenvolvedor);
 	}
-	//@CrossOrigin(originPatterns = "http://localhost/1")
+
 	@CrossOrigin(origins = "http://localhost")
 	@PutMapping("/{desenvolvedorId}")
 	public ResponseEntity<Desenvolvedor> atualizar(@PathVariable("desenvolvedorId") Long desenvolvedorId,

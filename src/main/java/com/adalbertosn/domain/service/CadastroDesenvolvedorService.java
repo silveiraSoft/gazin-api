@@ -24,11 +24,11 @@ public class CadastroDesenvolvedorService {
 			
 		} catch (EmptyResultDataAccessException e) {
 			throw new EntidadeNaoEncontradaException(
-				String.format("Não existe um cadastro de cozinha com código %d", desenvolvedorId));
-		
+				String.format("Não existe um cadastro de desenvolvedor com código %d", desenvolvedorId));
+		//
 		} catch (DataIntegrityViolationException e) {
 			throw new EntidadeEmUsoException(
-				String.format("Cozinha de código %d não pode ser removida, pois está em uso", desenvolvedorId));
+				String.format("Desenvolvedor de código %d não pode ser removida, pois está em uso", desenvolvedorId));
 		}
 	}
 }

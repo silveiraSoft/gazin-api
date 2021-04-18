@@ -18,8 +18,8 @@ public class DesenvolvedorRepositoryImpl implements DesenvolvedorRepository{
 	
 	@Override
 	public List<Desenvolvedor> listar() {
-		return manager.createQuery("from Desenvolvedor", Desenvolvedor.class)
-				.getResultList();
+		return manager.createQuery("from Desenvolvedor", Desenvolvedor.class).getResultList();
+		//return manager.createQuery("Select nome, sexo, idade, hobby, dataNascimento from Desenvolvedor", Desenvolvedor.class).getResultList();
 	}
 	
 	@Override

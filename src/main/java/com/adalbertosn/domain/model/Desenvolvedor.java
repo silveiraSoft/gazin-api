@@ -1,12 +1,14 @@
 package com.adalbertosn.domain.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.sun.istack.NotNull;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,20 +22,25 @@ public class Desenvolvedor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
 	@Column(nullable=false,length = 255)
 	private String nome;
 	
+	@NotNull
 	@Column(nullable=false,length = 1)
 	private String sexo;
 	
+	@NotNull
 	@Column(nullable=false)
 	private Integer idade;
 	
+	@NotNull
 	@Column(nullable=false,length = 255)
 	private String hobby;
 	
+	@NotNull
 	@Column(nullable=false)
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	
 	
 	
