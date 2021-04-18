@@ -1,6 +1,6 @@
 # gazin-api
 A continuação insiro detalhes de configuração e especificação da API implementada e usada no projeto.
-Foi desenvolvida uma API REST JSON conforme orientado usando o framework Spring boot, foi usado o banco em memória H2 para este teste, mas disponibilizo dentro da pasta gazin-api o script sql para a criação do banco de dados e a tabela no SGBD Mysql casso deseje ser usado em futuras versões.
+</br>Foi desenvolvida uma API REST JSON conforme orientado usando o framework Spring boot, foi usado o banco em memória H2 para este teste, mas disponibilizo dentro da pasta gazin-api o script sql para a criação do banco de dados e a tabela no SGBD Mysql casso deseje ser usado em futuras versões.
 Criei uma API usando o Spring boot pois considero uma ótima opção para o desenvolvimento de software pela sua rapidez de resposta e outras vantagens.  
 Baixe os arquivos fontes da API REST desenvolvida a partir da seguinte URL: 
 https://github.com/silveiraSoft/gazin-api
